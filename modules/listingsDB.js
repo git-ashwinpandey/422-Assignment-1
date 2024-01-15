@@ -9,8 +9,8 @@ module.exports = class ListingsDB {
 
   // Pass the connection string to `initialize()`
   initialize(connectionString) {
-    return new Promise((resolve, reject) => {
-      const db = mongoose.createConnection(connectionString);
+    return new Promise(async (resolve, reject) => {
+      const db = await mongoose.createConnection(connectionString);
 
       db.once('error', (err) => {
         reject(err);
