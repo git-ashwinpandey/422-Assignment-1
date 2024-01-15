@@ -17,7 +17,6 @@ const ListingsDB = require("./modules/listingsDB.js");
 const express = require('express');
 var cors = require('cors');
 const db = new ListingsDB();
- // "require" the Express module
 
 const HTTP_PORT = process.env.PORT || 8080; // assign a port
 
@@ -37,7 +36,7 @@ db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
 
 
 app.get('/', (req, res) => {
-    res.send({message: "API Listening"});
+    res.status(200).json({message: "API Listening"});
   });
 
 
