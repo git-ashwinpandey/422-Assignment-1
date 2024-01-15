@@ -11,14 +11,16 @@
  * Published URL: https://worried-fawn-tux.cyclic.app
  *
  ********************************************************************************/
-
-const ListingsDB = require("./modules/listingsDB.js");
 require('dotenv').config();
+const ListingsDB = require("./modules/listingsDB.js");
+
+const express = require('express');
+var cors = require('cors');
 const db = new ListingsDB();
-const express = require('express'); // "require" the Express module
+ // "require" the Express module
 
 const HTTP_PORT = process.env.PORT || 8080; // assign a port
-var cors = require('cors');
+
 
 const app = express();
 app.use(cors());
