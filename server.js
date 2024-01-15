@@ -18,7 +18,7 @@ const express = require('express');
 var cors = require('cors');
 const db = new ListingsDB();
 
-const HTTP_PORT = process.env.PORT || 8080; // assign a port
+const HTTP_PORT = process.env.PORT || 80; // assign a port
 
 
 const app = express();
