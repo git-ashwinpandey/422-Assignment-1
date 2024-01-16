@@ -8,7 +8,7 @@
  *
  * Name: Ashwin Pandey  Student ID: 156027211  Date: 15th January, 2024
  *
- * Published URL: https://worried-fawn-tux.cyclic.app
+ * Published URL: https://tricky-cuff-slug.cyclic.app/
  *
  ********************************************************************************/
 require('dotenv').config();
@@ -16,16 +16,14 @@ const ListingsDB = require("./modules/listingsDB.js");
 
 const express = require('express');
 var cors = require('cors');
-const db = new ListingsDB();
 
-const HTTP_PORT = process.env.PORT || 80; // assign a port
-
+const HTTP_PORT = process.env.PORT || 8080; // assign a port
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-console.log("MongoDB Connection String:", process.env.MONGODB_CONN_STRING);
+const db = new ListingsDB();
 db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
     app.listen(HTTP_PORT, ()=>{
         console.log(`server listening on: ${HTTP_PORT}`);
@@ -37,7 +35,7 @@ db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
 
 app.get('/', (req, res) => {
     res.status(200).json({message: "API Listening"});
-  });
+});
 
 
 app.post('/api/listings', async(req, res) => {
